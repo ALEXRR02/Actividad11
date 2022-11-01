@@ -1,0 +1,29 @@
+package com.mycompany.actividad11;
+
+public class Square implements Shape{
+    
+private double lado;
+
+    public Square(double lado) {
+        this.lado = lado;
+    }
+
+    public void setLado(double lado) {
+        this.lado = lado;
+    }
+
+    public double getLado() {
+        return lado;
+    }
+
+    @Override
+    public double getarea() {
+        return lado*lado;
+    }
+
+    @Override
+    public double getperimeter() {
+        return lado*4;
+    }
+
+}
