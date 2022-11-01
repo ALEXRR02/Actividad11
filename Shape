@@ -1,0 +1,5 @@
+package com.mycompany.actividad11;
+public interface Shape {
+    double getarea();
+    double getperimeter();
+}
