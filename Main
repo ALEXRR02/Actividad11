@@ -1,0 +1,84 @@
+package com.mycompany.actividad11;
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author alexr
+ */
+public class Actividad11 {
+
+    public static void main(String[] args) {
+    boolean area = false;
+        boolean perimetro = false;
+        boolean opcionValida;
+        char queCalcular;
+        char queFigura;
+        double resultado = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+            System.out.println("¿Qué quieres calcular? \na)Área \nb)Perimetro");
+            queCalcular = scanner.next().toLowerCase().charAt(0);
+
+            switch (queCalcular) {
+                case 'a':
+                    area = true;
+                    opcionValida = true;
+                    break;
+                case 'b':
+                    perimetro = true;
+                    opcionValida = true;
+                    break;
+                default:
+                    System.out.println("Selecciona \"a\" o \"b\"");
+                    opcionValida = false;
+                    break;
+            }
+        } while (opcionValida == false);
+
+        do {
+            System.out.println("¿Qué figura quieres calcular? \na) Circulo \nb) Cuadrado \nc) Triangulo");
+            queFigura = scanner.next().toLowerCase().charAt(0);
+
+            switch (queFigura) {
+                case 'a':
+                    System.out.println("En cm ¿cuál es el radio del circulo?");
+                    double radio = scanner.nextDouble();
+                    Circle circulo = new Circle(radio);
+
+                    if (area) resultado = circulo.getarea();
+                    if (perimetro) resultado = circulo.getperimeter();
+                    opcionValida = true;
+                    break;
+
+                case 'b':
+                    System.out.println("En cm ¿cuál es la longitud del lado?");
+                    double lado = scanner.nextDouble();
+                    Square cuadrado = new Square(lado);
+
+                    if (area) resultado = cuadrado.getarea();
+                    if (perimetro) resultado = cuadrado.getperimeter();
+                    opcionValida = true;
+                    break;
+
+                case 'c':
+                    System.out.println("En cm ¿cuál es la longitud del lado del triángulo?");
+                    double side = scanner.nextDouble();
+                    Triangle triangulo = new Triangle(side);
+
+                    if (area) resultado = triangulo.getarea();
+                    if (perimetro) resultado = triangulo.getperimeter();
+                    opcionValida = true;
+                    break;
+
+                default:
+                    System.out.println("Opción no valida, escoge \"a\", \"b\", \"c\"");
+                    opcionValida = false;
+                    break;
+            }
+        } while (opcionValida == false);
+
+        System.out.println(resultado);
+    }
+}
